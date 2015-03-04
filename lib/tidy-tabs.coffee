@@ -50,7 +50,7 @@ module.exports = TidyTabs =
   # Determine if a file is a candidate for closing
   isCandidate: (pane, item) ->
     # Filter out non-buffer views, like the Settings panel
-    unless item.getPath
+    unless item.getPath and item.isModified
       return false
 
     path = item.getPath()
