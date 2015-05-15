@@ -1,4 +1,5 @@
 {CompositeDisposable} = require 'atom'
+fs = require 'fs-plus'
 
 module.exports = TidyTabs =
   config:
