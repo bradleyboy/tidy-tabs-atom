@@ -1,7 +1,7 @@
 {
   "name": "tidy-tabs",
   "main": "./lib/tidy-tabs",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Keep your tab bar tidy by removing stale tabs.",
   "repository": "https://github.com/bradleyboy/tidy-tabs-atom",
   "license": "MIT",
