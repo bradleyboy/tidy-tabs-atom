@@ -66,17 +66,21 @@ module.exports = TidyTabs =
     # Have to do this manually, as it doesn't seem to
     # be part of the Atom API(?)
     now = +new Date
-    stat = fs.statSync(path)
-    lastModified = new Date(stat.mtime).getTime()
-    lastAccessed = new Date(stat.atime).getTime()
 
-    # Dirty hack to save this to the item so we
-    # can sort later.
-    item.__modified = lastModified
+    try
+      stat = fs.statSync(path)
+      lastModified = new Date(stat.mtime).getTime()
+      lastAccessed = new Date(stat.atime).getTime()
 
-    # Test against modified/access thresholds
-    now - lastModified > atom.config.get('tidy-tabs.modifiedThreshold')*60000 and
-      now - lastAccessed > atom.config.get('tidy-tabs.accessedThreshold')*60000
+      # Dirty hack to save this to the item so we
+      # can sort later.
+      item.__modified = lastModified
+
+      # Test against modified/access thresholds
+      now - lastModified > atom.config.get('tidy-tabs.modifiedThreshold')*60000 and
+        now - lastAccessed > atom.config.get('tidy-tabs.accessedThreshold')*60000
+    catch error
+      return false
 
   getItemsToClose: (pane) ->
     items = pane.getItems()
