@@ -1,4 +1,4 @@
-## 0.2.1 - Resolve uncaught stat errors.
+## 0.3.0 - Resolve uncaught stat errors.
 
 ## 0.2.0 - Explicitly require 'fs' module.
 
